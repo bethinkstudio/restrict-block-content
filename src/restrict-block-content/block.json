@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bethink/restrict-block-content",
+	"version": "0.1.0",
+	"title": "Restrict Block Content",
+	"category": "widgets",
+	"icon": "lock",
+	"description": "A container block that can control whether the inner blocks are visible.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"membership_tier": {
+			"type": "integer"
+		}
+	},
+	"textdomain": "restrict-block-content",
+	"editorScript": "file:./index.js"
+}
