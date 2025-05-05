@@ -1,13 +1,29 @@
 
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls, useInnerBlocksProps, InnerBlocks } from "@wordpress/block-editor";
-import { PanelBody, TextControl, __experimentalNumberControl as NumberControl } from "@wordpress/components";
+import { PanelBody, SelectControl, __experimentalNumberControl as NumberControl } from "@wordpress/components";
 
 export default function Edit( { attributes: { membership_tier }, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( "Restriction Details" ) }>
+
+					<SelectControl
+						label={ __( 'Minimum Access Level' ) }
+						value={ membership_tier }
+						options={
+							restrictBlockOptions &&
+							restrictBlockOptions.access_levels
+								? restrictBlockOptions.access_levels
+								: []
+						}
+						onChange={(value) =>
+							setAttributes({ membership_tier: value })
+						}
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
+					/>
 					<NumberControl
 						label={ __( "Tier" ) }
 						value={ membership_tier }
