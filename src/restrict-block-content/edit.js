@@ -19,7 +19,7 @@ export default function Edit( { attributes: { membership_tier }, setAttributes }
 								: []
 						}
 						onChange={(value) =>
-							setAttributes({ membership_tier: value })
+							setAttributes( { membership_tier: parseInt( value, 10 ) } )
 						}
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
@@ -29,7 +29,9 @@ export default function Edit( { attributes: { membership_tier }, setAttributes }
 						value={ membership_tier }
 						min={ 0 }
 						max={ 10 }
-						onChange={ (val) => setAttributes( { membership_tier: val } ) }
+						onChange={(value) =>
+							setAttributes( { membership_tier: parseInt( value, 10 ) } )
+						}
 						__next40pxDefaultSize
 					/>
 				</PanelBody>
