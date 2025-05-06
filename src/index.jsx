@@ -1,3 +1,4 @@
+/* global restrictBlockOptions */
 import { __, sprintf } from '@wordpress/i18n';
 import { addFilter } from '@wordpress/hooks';
 import { InspectorControls } from '@wordpress/block-editor';
@@ -53,9 +54,9 @@ addFilter(
 const rbcHelpText = (
 	<>
 		{ __(
-			'Enabling this will restrict this block from displaying for some visitors. ',
+			'Enabling this will restrict this block from displaying for some visitors.',
 			'restrict-block-content'
-		) }
+		) + ' ' }
 		<ExternalLink href={ 'https://bethink.studio/' }>
 			{ __( 'Learn more.', 'restrict-block-content' ) }
 		</ExternalLink>
@@ -124,13 +125,14 @@ function addRbcInspectorControls( BlockEdit ) {
 								<PanelRow>
 									<SelectControl
 										label={ __(
-											'Only show if...',
+											'Only show if…',
 											'restrict-block-content'
 										) }
 										value={ brcp_restriction_type }
 										options={ [
 											{
 												label: sprintf(
+													// translators: %s is replaced with a numeric level.
 													__(
 														'User has level %s or higher',
 														'restrict-block-content'
@@ -141,6 +143,7 @@ function addRbcInspectorControls( BlockEdit ) {
 											},
 											{
 												label: sprintf(
+													// translators: %s is replaced with a numeric level.
 													__(
 														'User does not have level %s',
 														'restrict-block-content'
