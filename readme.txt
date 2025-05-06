@@ -2,7 +2,7 @@
 Contributors:      georgestephanis, Bethink Studio
 Tags:              block editor, rcp, restrict-content-pro
 Tested up to:      6.7
-Stable tag:        0.9
+Stable tag:        0.9.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
