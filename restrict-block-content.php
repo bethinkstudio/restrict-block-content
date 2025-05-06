@@ -129,7 +129,7 @@ function _pre_render_block( $pre_render, $parsed_block ) {
 			switch( $compare ) {
 				case '>=':
 					// If the user doesn't have access to this level, deny it.
-					if ( ! rcp_user_has_access( get_current_user_id(), $level ) ) {
+					if ( ! ( is_user_logged_in() && rcp_user_has_access( get_current_user_id(), $level ) ) ) {
 						/**
 						 * Deny it in a way that we can customize the output if desired to explain why.
 						 *
