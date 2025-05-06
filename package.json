@@ -4,17 +4,28 @@
 	"description": "Applies Restrict Content Pro level based restrictions to specific core blocks.",
 	"author": "georgestephanis, Bethink Studio",
 	"license": "GPL-2.0-or-later",
-	"main": "build/index.js",
+	"keywords": [
+		"RCP",
+		"Restrict Content Pro",
+		"Restrict Content",
+		"Blocks",
+		"Block Editor",
+		"Full Site Editing"
+	],
+	"homepage": "https://bethink.studio",
+	"repository": "https://github.com/bethdsoderberg/restrict-block-content",
+	"bugs": "https://github.com/bethdsoderberg/restrict-block-content/issues/new",
+	"devDependencies": {
+		"@wordpress/scripts": "^30.15.0"
+	},
 	"scripts": {
 		"build": "wp-scripts build",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start"
-	},
-	"devDependencies": {
-		"@wordpress/scripts": "^30.15.0"
 	}
 }
