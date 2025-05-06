@@ -125,6 +125,11 @@ add_filter( 'register_block_type_args', __NAMESPACE__ . '\_register_block_type_a
  * @return string|null
  */
 function _pre_render_block( $pre_render, $parsed_block ) {
+	// If RCP isn't installed, there's no point in continuing.
+	if ( ! function_exists( 'rcp_user_has_access' ) ) {
+		return $pre_render;
+	}
+
 	if ( in_array( $parsed_block['blockName'], apply_filters( 'bethink_rbc_blocks', RESTRICTABLE_BLOCKS ) ) ) {
 		if ( ! empty( $parsed_block['attrs']['brcp_restrictions'] ) ) {
 			$level   = $parsed_block['attrs']['brcp_restriction_level'];
