@@ -1,4 +1,3 @@
-
 import { __, sprintf } from '@wordpress/i18n';
 import { addFilter } from '@wordpress/hooks';
 import { InspectorControls } from '@wordpress/block-editor';
@@ -8,7 +7,7 @@ import {
 	PanelRow,
 	SelectControl,
 	ToggleControl,
-	__experimentalNumberControl as NumberControl
+	__experimentalNumberControl as NumberControl,
 } from '@wordpress/components';
 
 const { access_levels, level_ids, restrictable_blocks } = restrictBlockOptions;
@@ -23,21 +22,20 @@ const { access_levels, level_ids, restrictable_blocks } = restrictBlockOptions;
  * @return {Object}         The modified block settings.
  */
 function addRbcAttributes( settings, name ) {
-
 	// Only add the attribute to supported blocks.
 	if ( restrictable_blocks.includes( name ) ) {
 		settings.attributes = {
 			...settings.attributes,
 			brcp_restrictions: {
-				type:    'boolean',
+				type: 'boolean',
 				default: false,
 			},
 			brcp_restriction_level: {
-				type:    'integer',
+				type: 'integer',
 				default: 0,
 			},
 			brcp_restriction_type: {
-				type:    'string',
+				type: 'string',
 				default: '',
 			},
 		};
@@ -54,12 +52,11 @@ addFilter(
 
 const rbcHelpText = (
 	<>
-		{ __( "Enabling this will restrict this block from displaying for some visitors. ", 'restrict-block-content' ) }
-		<ExternalLink
-			href={
-				'https://bethink.studio/'
-			}
-		>
+		{ __(
+			'Enabling this will restrict this block from displaying for some visitors. ',
+			'restrict-block-content'
+		) }
+		<ExternalLink href={ 'https://bethink.studio/' }>
 			{ __( 'Learn more.', 'restrict-block-content' ) }
 		</ExternalLink>
 	</>
@@ -75,60 +72,98 @@ function addRbcInspectorControls( BlockEdit ) {
 		}
 
 		// Retrieve selected attributes from the block.
-		const { brcp_restrictions, brcp_restriction_level, brcp_restriction_type } = attributes;
+		const {
+			brcp_restrictions,
+			brcp_restriction_level,
+			brcp_restriction_type,
+		} = attributes;
 
 		return (
 			<>
 				<BlockEdit { ...props } />
 				<InspectorControls>
 					<PanelBody
-						title={ __( 'Access Restrictions', 'restrict-block-content' ) }
+						title={ __(
+							'Access Restrictions',
+							'restrict-block-content'
+						) }
 					>
 						<PanelRow>
 							<ToggleControl
-								label={ __( 'Enable Restrictions?', 'restrict-block-content' ) }
+								label={ __(
+									'Enable Restrictions?',
+									'restrict-block-content'
+								) }
 								checked={ brcp_restrictions }
 								onChange={ ( value ) => {
-									setAttributes( { brcp_restrictions: value } );
+									setAttributes( {
+										brcp_restrictions: value,
+									} );
 								} }
 								help={ rbcHelpText }
 								__nextHasNoMarginBottom
 							/>
 						</PanelRow>
-						{ !! brcp_restrictions && <>
-							<PanelRow>
-								<NumberControl
-									label={ __( "Level" ) }
-									value={ brcp_restriction_level }
-									min={ 0 }
-									max={ 10 }
-									onChange={ (value) => setAttributes( { brcp_restriction_level: parseInt( value, 10 ) } ) }
-									__next40pxDefaultSize
-								/>
-							</PanelRow>
-							<PanelRow>
-								<SelectControl
-									label={ __( 'Only show if...', 'restrict-block-content' ) }
-									value={ brcp_restriction_type }
-									options={ [
-										{
-											label: sprintf( __( 'User has level %s or higher', 'restrict-block-content' ), brcp_restriction_level ),
-											value: '>=',
-										},
-										{
-											label: sprintf( __( 'User does not have level %s', 'restrict-block-content' ), brcp_restriction_level ),
-											value: '<',
-										},
-									] }
-									onChange={ (value) => setAttributes( { brcp_restriction_type: value } ) }
-									__nextHasNoMarginBottom
-									__next40pxDefaultSize
-								/>
-							</PanelRow>
-						</> }
+						{ !! brcp_restrictions && (
+							<>
+								<PanelRow>
+									<NumberControl
+										label={ __( 'Level' ) }
+										value={ brcp_restriction_level }
+										min={ 0 }
+										max={ 10 }
+										onChange={ ( value ) =>
+											setAttributes( {
+												brcp_restriction_level:
+													parseInt( value, 10 ),
+											} )
+										}
+										__next40pxDefaultSize
+									/>
+								</PanelRow>
+								<PanelRow>
+									<SelectControl
+										label={ __(
+											'Only show if...',
+											'restrict-block-content'
+										) }
+										value={ brcp_restriction_type }
+										options={ [
+											{
+												label: sprintf(
+													__(
+														'User has level %s or higher',
+														'restrict-block-content'
+													),
+													brcp_restriction_level
+												),
+												value: '>=',
+											},
+											{
+												label: sprintf(
+													__(
+														'User does not have level %s',
+														'restrict-block-content'
+													),
+													brcp_restriction_level
+												),
+												value: '<',
+											},
+										] }
+										onChange={ ( value ) =>
+											setAttributes( {
+												brcp_restriction_type: value,
+											} )
+										}
+										__nextHasNoMarginBottom
+										__next40pxDefaultSize
+									/>
+								</PanelRow>
+							</>
+						) }
 					</PanelBody>
 				</InspectorControls>
-				</>
+			</>
 		);
 	};
 }

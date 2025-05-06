@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       Restrict Block Content
- * Description:       Example block scaffolded with Create Block tool.
- * Version:           0.1.0
+ * Description:       Applies Restrict Content Pro level based restrictions to specific core blocks.
+ * Version:           0.9
  * Requires at least: 6.7
  * Requires PHP:      7.4
- * Author:            The WordPress Contributors
+ * Author:            George Stephanis / Bethink Studio
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       restrict-block-content
@@ -19,6 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+/**
+ * This can be overridden if desired via the `bethink_rbc_blocks` filter.
+ */
 const RESTRICTABLE_BLOCKS = array(
 	'core/group',
 	'core/row',
@@ -71,7 +74,7 @@ function _enqueue_block_editor_assets() {
 		array(
 			'access_levels'       => $access_levels,
 			'level_ids'           => $level_ids,
-			'restrictable_blocks' => RESTRICTABLE_BLOCKS,
+			'restrictable_blocks' => apply_filters( 'bethink_rbc_blocks', RESTRICTABLE_BLOCKS ),
 		)
 	);
 }
@@ -81,7 +84,7 @@ add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\_enqueue_block_edit
  * Add in our custom attributes to supported blocks.
  */
 function _register_block_type_args( $args, $block_type ) {
-	if ( in_array( $block_type, RESTRICTABLE_BLOCKS ) ) {
+	if ( in_array( $block_type, apply_filters( 'bethink_rbc_blocks', RESTRICTABLE_BLOCKS ) ) ) {
 		if ( ! isset( $args['attributes'] ) ) {
             $args['attributes'] = array();
         }
@@ -121,7 +124,7 @@ add_filter( 'register_block_type_args', __NAMESPACE__ . '\_register_block_type_a
  * @return string|null
  */
 function _pre_render_block( $pre_render, $parsed_block ) {
-	if ( in_array( $parsed_block['blockName'], RESTRICTABLE_BLOCKS ) ) {
+	if ( in_array( $parsed_block['blockName'], apply_filters( 'bethink_rbc_blocks', RESTRICTABLE_BLOCKS ) ) ) {
 		if ( ! empty( $parsed_block['attrs']['brcp_restrictions'] ) ) {
 			$level   = $parsed_block['attrs']['brcp_restriction_level'];
 			$compare = $parsed_block['attrs']['brcp_restriction_type'];
