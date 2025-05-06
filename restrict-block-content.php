@@ -48,20 +48,19 @@ function _enqueue_block_editor_assets() {
 	 *
 	 * @link https://github.com/stellarwp/kadence-blocks/blob/67e47610ab78274f6235d69b0e7b4c08940d2346/includes/class-kadence-blocks-editor-assets.php#L235-L254
 	 */
-	$access_levels = [];
-	$level_ids     = [];
+	$access_levels     = [];
+	$membership_levels = [];
 	if ( function_exists( 'rcp_get_access_levels' ) ) {
-		foreach ( rcp_get_access_levels() as $key => $access_level_label ) {
-			$access_levels[] = [
-				'value' => $key,
-				/* translators: %s is the access level name. */
-				'label' => sprintf( __( 'RCP Level %s', 'restrict-block-content' ), $key ),
-			];
-		}
+		$access_levels = rcp_get_access_levels();
+
+		$access_levels_keys = array_keys( $access_levels );
+		$access_levels_min = min( $access_levels_keys );
+		$access_levels_max = max( $access_levels_keys );
+
 		foreach ( rcp_get_membership_levels( [ 'number' => 999 ] ) as $level ) {
-			$level_ids[] = [
+			$membership_levels[] = [
 				'value' => $level->get_id(),
-				'label' => esc_attr( $level->get_name() ),
+				'label' => $level->get_name(),
 			];
 		}
 	}
@@ -73,8 +72,10 @@ function _enqueue_block_editor_assets() {
 		'bethink-restrict-block-content',
 		'restrictBlockOptions',
 		array(
-			'access_levels'       => $access_levels,
-			'level_ids'           => $level_ids,
+			// 'access_levels'       => $access_levels,
+			'access_levels_min'   => $access_levels_min,
+			'access_levels_max'   => $access_levels_max,
+			// 'membership_levels'   => $membership_levels,
 			'restrictable_blocks' => apply_filters( 'bethink_rbc_blocks', RESTRICTABLE_BLOCKS ),
 		)
 	);

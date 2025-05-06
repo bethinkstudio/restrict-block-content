@@ -11,7 +11,7 @@ import {
 	__experimentalNumberControl as NumberControl,
 } from '@wordpress/components';
 
-const { access_levels, level_ids, restrictable_blocks } = restrictBlockOptions;
+const { access_levels_min, access_levels_max, restrictable_blocks } = restrictBlockOptions;
 
 /**
  * Confirm adding our custom attributes to all supported blocks.
@@ -111,8 +111,8 @@ function addRbcInspectorControls( BlockEdit ) {
 									<NumberControl
 										label={ __( 'Level' ) }
 										value={ brcp_restriction_level }
-										min={ 0 }
-										max={ 10 }
+										min={ access_levels_min }
+										max={ access_levels_max }
 										onChange={ ( value ) =>
 											setAttributes( {
 												brcp_restriction_level:
