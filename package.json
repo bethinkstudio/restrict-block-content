@@ -13,8 +13,8 @@
 		"Full Site Editing"
 	],
 	"homepage": "https://bethink.studio",
-	"repository": "https://github.com/bethdsoderberg/restrict-block-content",
-	"bugs": "https://github.com/bethdsoderberg/restrict-block-content/issues/new",
+	"repository": "https://github.com/bethinkstudio/restrict-block-content",
+	"bugs": "https://github.com/bethinkstudio/restrict-block-content/issues/new",
 	"devDependencies": {
 		"@wordpress/scripts": "^30.15.0"
 	},
