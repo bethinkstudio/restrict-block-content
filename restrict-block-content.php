@@ -2,14 +2,14 @@
 /**
  * Plugin Name:       Restrict Block Content
  * Description:       Applies Restrict Content Pro level based restrictions to specific core blocks.
- * Version:           0.9.0
+ * Version:           0.9.1
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Author:            George Stephanis / Bethink Studio
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       restrict-block-content
- * Domain Path:       languages
+ * Domain Path:       /languages
  *
  * @package CreateBlock
  */
@@ -28,14 +28,14 @@ const RESTRICTABLE_BLOCKS = array(
 	'core/row',
 );
 
-
 function _enqueue_block_editor_assets() {
 	$asset_file = include( plugin_dir_path( __FILE__ ) . 'build/index.asset.php');
 	wp_enqueue_script(
 		'bethink-restrict-block-content',
 		plugins_url( 'build/index.js', __FILE__ ),
 		$asset_file['dependencies'],
-		$asset_file['version']
+		$asset_file['version'],
+		true
 	);
 
 	wp_set_script_translations(

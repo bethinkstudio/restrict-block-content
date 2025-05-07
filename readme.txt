@@ -1,8 +1,8 @@
 === Restrict Block Content ===
 Contributors:      georgestephanis, Bethink Studio
 Tags:              block editor, rcp, restrict-content-pro
-Tested up to:      6.7
-Stable tag:        0.9.0
+Tested up to:      6.8
+Stable tag:        0.9.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,5 +16,8 @@ Restrictions involve enabling it for that block, then setting the access level u
 
 == Changelog ==
 
-= 0.9 =
+= 0.9.1 =
+* Minor changes to appease the plugin check to submit to .org.
+
+= 0.9.0 =
 * Release
