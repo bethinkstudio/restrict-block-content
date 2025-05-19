@@ -1,4 +1,4 @@
-/* global restrictBlockOptions */
+/* global bethinkRestrictBlockOptions */
 import { __, sprintf } from '@wordpress/i18n';
 import { addFilter } from '@wordpress/hooks';
 import { InspectorControls } from '@wordpress/block-editor';
@@ -11,7 +11,7 @@ import {
 	__experimentalNumberControl as NumberControl,
 } from '@wordpress/components';
 
-const { access_levels_min, access_levels_max, restrictable_blocks } = restrictBlockOptions;
+const { access_levels_min, access_levels_max, restrictable_blocks } = bethinkRestrictBlockOptions;
 
 /**
  * Confirm adding our custom attributes to all supported blocks.

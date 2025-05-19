@@ -1,6 +1,6 @@
 {
 	"name": "restrict-block-content",
-	"version": "0.9.0",
+	"version": "0.9.1",
 	"description": "Applies Restrict Content Pro level based restrictions to specific core blocks.",
 	"author": "georgestephanis, Bethink Studio",
 	"license": "GPL-2.0-or-later",
@@ -13,8 +13,8 @@
 		"Full Site Editing"
 	],
 	"homepage": "https://bethink.studio",
-	"repository": "https://github.com/bethdsoderberg/restrict-block-content",
-	"bugs": "https://github.com/bethdsoderberg/restrict-block-content/issues/new",
+	"repository": "https://github.com/bethinkstudio/restrict-block-content",
+	"bugs": "https://github.com/bethinkstudio/restrict-block-content/issues/new",
 	"devDependencies": {
 		"@wordpress/scripts": "^30.15.0"
 	},
