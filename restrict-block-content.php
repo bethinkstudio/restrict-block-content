@@ -70,7 +70,7 @@ function _enqueue_block_editor_assets() {
 
 	wp_localize_script(
 		'bethink-restrict-block-content',
-		'restrictBlockOptions',
+		'bethinkRestrictBlockOptions',
 		array(
 			// 'access_levels'       => $access_levels,
 			'access_levels_min'   => $access_levels_min,
