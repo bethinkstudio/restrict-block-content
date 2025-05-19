@@ -14,6 +14,12 @@ This plugin will allow you, by default, to add restrictions to `core/group` and 
 
 Restrictions involve enabling it for that block, then setting the access level used by RCP, and then determine whether the user must have at least that access level, or not have that access level in the block editor.
 
+== Source Code ==
+
+Full source code is available on Github here:
+
+https://github.com/bethinkstudio/restrict-block-content
+
 == Changelog ==
 
 = 0.9.1 =
