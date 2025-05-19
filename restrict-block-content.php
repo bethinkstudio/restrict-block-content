@@ -12,7 +12,7 @@
  * Domain Path:       /languages
  * Requires Plugins:  restrict-content
  *
- * @package CreateBlock
+ * @package BethinkRestrictBlockContent
  */
 
 namespace Bethink\RestrictBlockContent;
