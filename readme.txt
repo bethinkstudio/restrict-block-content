@@ -1,5 +1,5 @@
 === Restrict Block Content ===
-Contributors:      georgestephanis, Bethink Studio
+Contributors:      georgestephanis, bethinkstudio
 Tags:              block editor, rcp, restrict-content-pro
 Tested up to:      6.8
 Stable tag:        1.0.0
