@@ -1,3 +1,11 @@
+/.wordpress-org
+/.git
+/.github
+/node_modules
+
+.distignore
+.gitignore
 .editorconfig
+
 composer.lock
 package-lock.json
