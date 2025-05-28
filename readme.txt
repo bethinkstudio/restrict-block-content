@@ -2,7 +2,7 @@
 Contributors:      georgestephanis, bethinkstudio
 Tags:              block editor, rcp, restrict-content-pro
 Tested up to:      6.8
-Stable tag:        1.0.0
+Stable tag:        1.0.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,10 @@ https://github.com/bethinkstudio/restrict-block-content
 3. Once you specify the level, the text will update to clarify which level it is restricting based on.
 
 == Changelog ==
+
+= 1.0.1 =
+* Add fallback for default comparison value.
+* Tidy up code formatting in readme.txt.
 
 = 1.0.0 =
 * Initial public release on WordPress.org.

@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Restrict Block Content
  * Description:       Applies Restrict Content Pro level based restrictions to specific core blocks.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Author:            George Stephanis / Bethink Studio
