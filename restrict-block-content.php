@@ -135,7 +135,7 @@ function _pre_render_block( $pre_render, $parsed_block ) {
 	if ( in_array( $parsed_block['blockName'], apply_filters( 'bethink_rbc_blocks', RESTRICTABLE_BLOCKS ) ) ) {
 		if ( ! empty( $parsed_block['attrs']['brcp_restrictions'] ) ) {
 			$level   = $parsed_block['attrs']['brcp_restriction_level'];
-			$compare = $parsed_block['attrs']['brcp_restriction_type'];
+			$compare = $parsed_block['attrs']['brcp_restriction_type'] ?? '>=';
 
 			switch( $compare ) {
 				case '>=':
