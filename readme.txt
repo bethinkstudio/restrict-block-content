@@ -22,19 +22,19 @@ This plugin relies on either [Restrict Content](https://wordpress.org/plugins/re
 
 If you need to use this with an older version, you can apply this filter manually:
 
-```
+`
 /**
  * Filter so that plugins listing the free version as a dependency would also be satisfied by the Pro version.
  *
  * @param string $slug The plugin slug being checked.
  */
-add_filter( 'wp_plugin_dependencies_slug', function( $slug ) {
-	if ( 'restrict-content' === $slug ) {
-		$slug = 'restrict-content-pro';
+add_filter( 'wp_plugin_dependencies_slug', function( $s ) {
+	if ( 'restrict-content' === $s ) {
+		$s = 'restrict-content-pro';
 	}
-	return $slug;
+	return $s;
 });
-```
+`
 
 == Source Code ==
 
